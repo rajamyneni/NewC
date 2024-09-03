@@ -15,17 +15,15 @@ header {
     position: relative;
 }
 
-/* Logo Styles */
 #company-logo {
-    position: absolute; /* Position it absolutely to the left */
-    left: 20px; /* Add space from the left edge */
-    top: 20px; /* Adjust the top position if necessary */
-    background-color: white; /* Add a white background */
-    padding: 10px; /* Add padding around the logo */
-    border-radius: 5px; /* Optional: Add some rounding to the corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    position: absolute; 
+    left: 20px; 
+    top: 20px; 
+    background-color: white; 
+    padding: 10px; 
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
-
 
 h1 {
     margin: 10px 0;
@@ -58,6 +56,7 @@ section {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+    flex-wrap: wrap; /* Ensure content wraps properly */
 }
 
 /* Image Styling */
@@ -70,7 +69,8 @@ section {
 /* Text Styling */
 .feature-text {
     width: 50%;
-    text-align: left;
+    text-align: justify;
+    flex: 1; /* Allow the text to take available space */
 }
 
 .feature-text h2 {
@@ -89,6 +89,7 @@ section {
     margin-bottom: 20px;
     text-align: left;
 }
+
 #employee-stories .story h3 {
     margin-top: 0;
     font-size: 1.5em;
@@ -121,7 +122,64 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    position: fixed;
+    position: relative; /* Changed to make it scrollable on mobile */
     bottom: 0;
     width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+
+    section {
+        padding: 30px 15px;
+    }
+
+    .feature-image,
+    .feature-text {
+        max-width: 100%;
+    }
+
+    footer {
+        padding: 15px;
+    }
+}
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    width: 45%;
+    padding-top: 56.25%; /* Aspect ratio of 16:9; adjust as needed */
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center; /* Vertically center the images */
+    justify-content: center; /* Horizontally center the images */
+}
+
+/* Image Styling */
+.slideshow-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0.2); /* Start slightly smaller */
+    transition: all 1s ease-in-out;
+    object-fit: cover; /* Cover the container while preserving aspect ratio */
+}
+
+.slideshow-image.active {
+    opacity: 1;
+    transform: scale(1); /* Rotate back to normal */
 }
