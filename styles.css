@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,40 +6,121 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Header Styles */
 header {
     background-color: #004c8c;
     color: white;
-    padding: 20px;
     text-align: center;
-}
-
-#apply-now {
-    background-color: #ff6600;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-section {
     padding: 20px;
-    margin: 20px;
+    position: relative;
+}
+
+/* Logo Styles */
+#company-logo {
+    position: absolute; /* Position it absolutely to the left */
+    left: 20px; /* Add space from the left edge */
+    top: 20px; /* Adjust the top position if necessary */
+    background-color: white; /* Add a white background */
+    padding: 10px; /* Add padding around the logo */
+    border-radius: 5px; /* Optional: Add some rounding to the corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+
+h1 {
+    margin: 10px 0;
+    font-size: 2em;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Section Styles */
+section {
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 1000px;
     background-color: white;
     border-radius: 10px;
 }
 
-#employee-stories .story {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
+/* Flexbox Container for Feature Section */
+.feature-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
+/* Image Styling */
+.feature-image {
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Text Styling */
+.feature-text {
+    width: 50%;
+    text-align: left;
+}
+
+.feature-text h2 {
+    margin-top: 0;
+}
+
+.feature-text p {
+    margin-bottom: 1.2em;
+}
+
+/* Employee Stories Styling */
+#employee-stories .story {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+#employee-stories .story h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #004c8c;
+}
+
+#employee-stories .story p {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+/* Current Openings Styling */
+#current-openings ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#current-openings li {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+/* Footer Styles */
 footer {
     background-color: #004c8c;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     position: fixed;
     bottom: 0;
     width: 100%;
