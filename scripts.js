@@ -21,7 +21,7 @@ function initializeSlideshow(slideshowSelector) {
     showSlide(currentSlide);
 
     // Set the interval for the slideshow
-    setInterval(nextSlide, 10000); // Change slide every 10 seconds
+    setInterval(nextSlide, 5000); // Change slide every 10 seconds
 }
 
 // Initialize slideshows for both sections
