@@ -11,14 +11,19 @@ header {
     background-color: #004c8c;
     color: white;
     text-align: center;
-    padding: 20px;
+    justify-content: center;
+    padding: 0;
     position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 100px;
 }
 
 #company-logo {
     position: absolute; 
     left: 20px; 
-    top: 20px; 
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
     background-color: white; 
     padding: 10px; 
     border-radius: 5px;
@@ -26,20 +31,12 @@ header {
 }
 
 h1 {
-    margin: 10px 0;
+    margin: 00px 0;
     font-size: 2em;
+    text-align: center; /* Ensure title is centered */
 }
 
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
 
-nav a:hover {
-    text-decoration: underline;
-}
 
 /* Section Styles */
 section {
@@ -50,35 +47,47 @@ section {
     border-radius: 10px;
 }
 
-/* Flexbox Container for Feature Section */
+/* Section 3: What Makes Us Different */
 .feature-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: wrap; /* Ensure content wraps properly */
-}
-
-/* Image Styling */
-.feature-image {
-    width: 45%;
-    height: auto;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 40px;
     border-radius: 10px;
 }
 
-/* Text Styling */
+.feature-container.reverse .feature-text {
+    order: 2; /* Move text to the right */
+}
+
+.feature-container.reverse .feature-image {
+    order: 1; /* Move image to the left */
+}
+
 .feature-text {
-    width: 50%;
-    text-align: justify;
-    flex: 1; /* Allow the text to take available space */
+    flex: 1;
+    padding: 20px;
 }
 
-.feature-text h2 {
-    margin-top: 0;
+.feature-image {
+    width: 45%;
+    border-radius: 50%;  /* Make the image round */
+    object-fit: cover;
 }
 
-.feature-text p {
-    margin-bottom: 1.2em;
+a {
+    text-decoration: none;
+    color: #004c8c;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* Employee Stories Styling */
@@ -122,12 +131,12 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    position: relative; /* Changed to make it scrollable on mobile */
+    position: relative;
     bottom: 0;
     width: 100%;
 }
 
-/* Responsive Design */
+/* Responsive Design for all sections */
 @media (max-width: 768px) {
     header {
         padding: 15px;
@@ -145,6 +154,18 @@ footer {
         padding: 30px 15px;
     }
 
+    .feature-container {
+        flex-direction: column;
+    }
+
+    .feature-container.reverse .feature-text {
+        order: 1;
+    }
+
+    .feature-container.reverse .feature-image {
+        order: 2;
+    }
+
     .feature-image,
     .feature-text {
         max-width: 100%;
@@ -153,33 +174,4 @@ footer {
     footer {
         padding: 15px;
     }
-}
-/* Slideshow Container */
-.slideshow-container {
-    position: relative;
-    width: 45%;
-    padding-top: 56.25%; /* Aspect ratio of 16:9; adjust as needed */
-    overflow: hidden;
-    border-radius: 10px;
-    display: flex;
-    align-items: center; /* Vertically center the images */
-    justify-content: center; /* Horizontally center the images */
-}
-
-/* Image Styling */
-.slideshow-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transform: scale(0.2); /* Start slightly smaller */
-    transition: all 1s ease-in-out;
-    object-fit: cover; /* Cover the container while preserving aspect ratio */
-}
-
-.slideshow-image.active {
-    opacity: 1;
-    transform: scale(1); /* Rotate back to normal */
 }
