@@ -3,68 +3,92 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: transparent; /* Ensure background is transparent to show video */
+    color: black;
+}
+
+header, section, footer {
+    position: relative;
+    z-index: 1; /* Ensure content is above video */
+}
+
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.75; /* Adjust transparency of video */
 }
 
 /* Header Styles */
 header {
-    background-color: #004c8c;
-    color: white;
     text-align: center;
-    justify-content: center;
-    padding: 0;
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
-    min-height: 100px;
+    padding: 50px 20px;
+    color: white;
 }
 
 #company-logo {
-    position: absolute; 
-    left: 20px; 
-    top: 50%;
-    transform: translateY(-50%); /* Center vertically */
-    background-color: white; 
-    padding: 10px; 
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    width: 100px;
+    margin-bottom: 20px;
 }
-
-h1 {
-    margin: 00px 0;
-    font-size: 2em;
-    text-align: center; /* Ensure title is centered */
-}
-
-
 
 /* Section Styles */
 section {
-    padding: 40px 20px;
-    margin: 20px auto;
-    max-width: 1000px;
-    background-color: white;
-    border-radius: 10px;
+    padding: 100px 20px;
+    background-color: transparent; /* Removed background color */
 }
 
-/* Section 3: What Makes Us Different */
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: transparent; /* Removed background color */
+    color: white;
+}
+
+/* Feature Container Styling */
 .feature-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
     padding: 40px 20px;
-    background-color: #f9f9f9;
-    margin-bottom: 40px;
-    border-radius: 10px;
-}
-
-.feature-container.reverse .feature-text {
-    order: 2; /* Move text to the right */
-}
-
-.feature-container.reverse .feature-image {
-    order: 1; /* Move image to the left */
+    background-color: transparent; /* Removed background color */
 }
 
 .feature-text {
@@ -72,106 +96,47 @@ section {
     padding: 20px;
 }
 
+/* Image Styling with Gradient Overlay */
 .feature-image {
-    width: 45%;
-    border-radius: 50%;  /* Make the image round */
-    object-fit: cover;
+    width: 40%;
+    position: relative; /* Position for gradient overlay */
 }
 
-a {
-    text-decoration: none;
-    color: #004c8c;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Employee Stories Styling */
-#employee-stories .story {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-#employee-stories .story h3 {
-    margin-top: 0;
-    font-size: 1.5em;
-    color: #004c8c;
-}
-
-#employee-stories .story p {
-    margin: 10px 0;
-    font-size: 1em;
-}
-
-/* Current Openings Styling */
-#current-openings ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#current-openings li {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    text-align: left;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #004c8c;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    bottom: 0;
+.feature-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 1;
 }
 
-/* Responsive Design for all sections */
+.feature-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    z-index: 0; /* Ensure image is behind gradient */
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    header {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    nav a {
-        margin: 0 10px;
-    }
-
-    section {
-        padding: 30px 15px;
-    }
-
     .feature-container {
         flex-direction: column;
+        text-align: center;
     }
 
-    .feature-container.reverse .feature-text {
-        order: 1;
+    .feature-image {
+        width: 100%;
     }
 
-    .feature-container.reverse .feature-image {
-        order: 2;
+    header {
+        padding: 20px;
     }
 
-    .feature-image,
-    .feature-text {
-        max-width: 100%;
-    }
-
-    footer {
-        padding: 15px;
+    h2 {
+        font-size: 2em;
     }
 }
