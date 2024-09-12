@@ -3,16 +3,53 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: transparent; /* Ensure background is transparent to show video */
+    background-color: transparent;
     color: black;
+    padding-top: 80px; /* Padding to account for the fixed header */
 }
 
-header, section, footer {
+/* Fixed Header with Logo and Heading ("Careers") */
+header {
+    position: fixed; /* Freeze to the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and "Careers" */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    padding: 10px 20px;
+    z-index: 100; /* Ensure it stays above other content */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+}
+
+/* Inner container to center the "Careers" heading */
+.header-inner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     position: relative;
-    z-index: 1; /* Ensure content is above video */
 }
 
-/* Video Background */
+/* Logo Styling */
+#company-logo {
+    position: absolute;
+    left: 20px; /* Keep the logo aligned to the left */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center the logo */
+    width: 150px;
+    height: auto;
+}
+
+/* Heading ("Careers") Styling */
+#header-title {
+    font-size: 2rem;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+/* Video Background Styling */
 .video-background {
     position: fixed;
     top: 0;
@@ -20,75 +57,85 @@ header, section, footer {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1;
+    z-index: -1; /* Ensure the video stays behind the content */
 }
 
 .video-background video {
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    opacity: 0.75; /* Adjust transparency of video */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    object-fit: cover; /* Ensure video fills the viewport without distortion */
+    transform: translate(-50%, -50%); /* Center the video */
 }
 
-/* Header Styles */
-header {
-    text-align: center;
-    padding: 50px 20px;
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 0;
+}
+
+/* Text on top of the video */
+.text-on-video {
+    position: relative;
+    z-index: 1;
     color: white;
-}
-
-#company-logo {
-    width: 100px;
-    margin-bottom: 20px;
-}
-
-/* Section Styles */
-section {
-    padding: 100px 20px;
-    background-color: transparent; /* Removed background color */
-}
-
-h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 1.2em;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
     padding: 20px;
-    background-color: transparent; /* Removed background color */
-    color: white;
+    font-size: 2rem;
+    text-align: center;
 }
 
-/* Feature Container Styling */
+/* Sections Styling */
+section {
+    position: relative;
+    z-index: 1;
+    padding: 10px 10px; /* Reduced padding */
+    margin: 0px auto; /* Reduced margin */
+    max-width: 1200px; /* Increased maximum width */
+    background-color: rgba(210, 237, 250, 0.5); /* Semi-transparent background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    backdrop-filter: blur(5px); /* Optional: Adds a slight blur behind the section */
+}
+
+section h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+section p, section ul {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Section Divider */
+.section-divider {
+    height: 20px;
+    background: linear-gradient(to right, #bad5e7, #a0cff7); /* Gradient divider between sections */
+    margin: 0 auto;
+    width: 60%;
+}
+
+/* Feature Container */
 .feature-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    padding: 40px 20px;
-    background-color: transparent; /* Removed background color */
+}
+
+.feature-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .feature-text {
@@ -96,29 +143,10 @@ footer {
     padding: 20px;
 }
 
-/* Image Styling with Gradient Overlay */
-.feature-image {
-    width: 40%;
-    position: relative; /* Position for gradient overlay */
-}
-
-.feature-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-    z-index: 1;
-}
-
-.feature-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    z-index: 0; /* Ensure image is behind gradient */
+/* Accent Color for Headings */
+h2 {
+    border-left: 5px solid #3498db;
+    padding-left: 10px;
 }
 
 /* Responsive Design */
