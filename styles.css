@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: transparent; /* Ensure background is transparent to show video */
-    color: black; /* Changed the default text color to black */
+    color: black;
 }
 
 header, section, footer {
@@ -40,7 +40,7 @@ header, section, footer {
 header {
     text-align: center;
     padding: 50px 20px;
-    color: black; /* Changed header text color to black */
+    color: white;
 }
 
 #company-logo {
@@ -52,18 +52,15 @@ header {
 section {
     padding: 100px 20px;
     background-color: transparent; /* Removed background color */
-    color: black; /* Changed section text color to black */
 }
 
 h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: black; /* Changed heading color to black */
 }
 
 p {
     font-size: 1.2em;
-    color: black; /* Changed paragraph color to black */
 }
 
 ul {
@@ -74,7 +71,6 @@ ul {
 ul li {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: black; /* Changed list items color to black */
 }
 
 /* Footer Styles */
@@ -82,7 +78,7 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: transparent; /* Removed background color */
-    color: black; /* Changed footer text color to black */
+    color: white;
 }
 
 /* Feature Container Styling */
@@ -98,7 +94,6 @@ footer {
 .feature-text {
     flex: 1;
     padding: 20px;
-    color: black; /* Changed text inside feature containers to black */
 }
 
 /* Image Styling with Gradient Overlay */
